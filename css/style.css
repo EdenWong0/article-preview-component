@@ -25,12 +25,13 @@ body {
   width: 100%;
   background-color: var(--bg-color);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .article-card-image {
   width: 40%;
+  overflow: hidden;
 }
 
 .article-card-image img {
@@ -105,8 +106,9 @@ body {
 .share-menu {
   display: none;
   position: absolute;
-  bottom: 150%;
-  right: 0;
+  bottom: calc(100% + 20px);
+  left: 53%;
+  transform: translateX(-53%);
   background: var(--title-color);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -117,8 +119,8 @@ body {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  z-index: 999999;
+  gap: 0.5rem;
+  z-index: 999;
 }
 
 .share-menu::after {
@@ -150,7 +152,6 @@ body {
     width: 90%;
     margin: 1rem auto;
     border-radius: 16px;
-    overflow: hidden;
   }
 
   .article-card-image {

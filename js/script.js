@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   shareIcons.forEach((icon) => {
     const btn = icon.querySelector(".share-btn");
     const menu = icon.querySelector(".share-menu");
-    // hide it by default
     menu.style.display = "none";
 
     btn.addEventListener("click", (e) => {
