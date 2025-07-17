@@ -1,32 +1,51 @@
-// js/script.js
 document.addEventListener("DOMContentLoaded", () => {
   console.log("script.js loaded and DOM ready");
+
   const shareIcons = document.querySelectorAll(".share-icon");
+
   shareIcons.forEach((icon) => {
     const btn = icon.querySelector(".share-btn");
     const menu = icon.querySelector(".share-menu");
-    menu.style.display = "none";
+    const articleCard = icon.closest(".article-card");
+
+    if (menu) menu.style.display = "none";
 
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      // close any others
-      document.querySelectorAll(".share-icon.active").forEach((other) => {
-        if (other !== icon) {
-          other.classList.remove("active");
-          other.querySelector(".share-menu").style.display = "none";
-        }
+
+      // Close all others
+      document.querySelectorAll(".share-icon").forEach((i) => {
+        i.classList.remove("active");
+        const m = i.querySelector(".share-menu");
+        if (m) m.style.display = "none";
       });
-      // toggle this one
+
       const isActive = icon.classList.toggle("active");
-      menu.style.display = isActive ? "flex" : "none";
+
+      if (window.innerWidth <= 576) {
+        // On mobile: use class to slide it in
+        if (isActive) {
+          articleCard.classList.add("show-share");
+          if (menu) menu.style.display = "flex";
+        } else {
+          articleCard.classList.remove("show-share");
+          if (menu) menu.style.display = "none";
+        }
+      } else {
+        if (menu) menu.style.display = isActive ? "flex" : "none";
+      }
     });
   });
 
-  // click outside closes all
+  // Click outside closes all
   document.addEventListener("click", () => {
-    shareIcons.forEach((icon) => {
+    document.querySelectorAll(".article-card").forEach((card) => {
+      card.classList.remove("show-share");
+    });
+    document.querySelectorAll(".share-icon").forEach((icon) => {
       icon.classList.remove("active");
-      icon.querySelector(".share-menu").style.display = "none";
+      const menu = icon.querySelector(".share-menu");
+      if (menu) menu.style.display = "none";
     });
   });
 });
