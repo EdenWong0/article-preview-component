@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("script.js loaded and DOM ready");
-
   const shareIcons = document.querySelectorAll(".share-icon");
 
   shareIcons.forEach((icon) => {
