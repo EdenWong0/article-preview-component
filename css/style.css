@@ -294,6 +294,7 @@ body {
     transform: translateX(-53%);
   }
 
+  .avatar-info p,
   .share-label {
     font-size: 12px;
   }
