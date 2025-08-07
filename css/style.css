@@ -91,7 +91,7 @@ body {
 }
 
 .share-icon {
-  background: var(--bg-color);
+  background: var(--light-blue);
   padding: 0.2rem;
   border-radius: 50%;
   margin-left: auto;
@@ -111,8 +111,6 @@ body {
   width: 15px;
   height: 15px;
   padding: 0.4em;
-  filter: brightness(0) saturate(100%) invert(24%) sepia(8%) saturate(1496%)
-    hue-rotate(189deg) brightness(90%) contrast(85%);
 }
 
 .share-menu {
